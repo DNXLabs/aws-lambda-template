@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description:  Sample SAM Template for lambda-sqs-template
+
+Resources:
+  MyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      Timeout: 10
+      MemorySize: 512
+      Architectures:
+        - x86_64
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ./src
+      DockerTag: python3.11-v1
